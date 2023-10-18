@@ -99,11 +99,10 @@ namespace VRTetris
             float radius = _spawnRadius.lossyScale.x / 2;
             if (leftHandCloser && leftHandDist > radius)
             {
-                _spawnedPiece.transform.rotation = Quaternion.Euler(0f, 0f, rot - 90);
+                _spawnedPiece.transform.localRotation = Quaternion.Euler(rot - 90, 0f, 0f);
             }
             else if (!leftHandCloser && rightHandDist > radius)
             {
-                //_spawnedPiece.transform.localRotation = Quaternion.Euler(0f, 0f, zRot - 90);
                 _spawnedPiece.transform.localRotation = Quaternion.Euler(rot - 90, 0f, 0f);
             }
         }
