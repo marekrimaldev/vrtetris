@@ -7,6 +7,12 @@ namespace VRTetris
 {
     public class VRPlayer : MonoBehaviourSingleton<VRPlayer>
     {
+        [SerializeField] private VRHand _leftHand;
+        [SerializeField] private VRHand _rightHand;
+
+        public VRHand LeftHand => _leftHand;
+        public VRHand RightHand => _rightHand;
+
         public static System.Action<Piece> OnPieceDropped;
 
         public void PiecePicked(SelectEnterEventArgs args)
