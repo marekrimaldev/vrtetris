@@ -20,19 +20,29 @@ namespace VRTetris
             IXRInteractable interactable = args.interactableObject;
             Piece piece = interactable.transform.GetComponentInParent<Piece>();
 
-            if(piece != null)
+            IXRInteractor interactor = args.interactorObject;
+            VRHand hand = interactor.transform.parent.GetComponentInChildren<VRHand>();
+
+            if (piece != null)
             {
                 piece.Grab();
+                hand.HeldPiece = piece;
             }
         }
 
         public void PieceDropped(SelectExitEventArgs args)
         {
             IXRInteractable interactable = args.interactableObject;
-
             Piece piece = interactable.transform.GetComponent<Piece>();
-            if(piece != null)
+
+            IXRInteractor interactor = args.interactorObject;
+            VRHand hand = interactor.transform.parent.GetComponentInChildren<VRHand>();
+
+            if (piece != null)
+            {
                 OnPieceDropped?.Invoke(piece);
+                hand.HeldPiece = null;
+            }
         }
     }
 }

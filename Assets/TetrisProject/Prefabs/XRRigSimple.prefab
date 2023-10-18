@@ -5260,6 +5260,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handCenter: {fileID: 1194187194}
+  _flipPieceAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Flip Piece
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 0f57a634-e954-4a98-8a1e-95cdf667c2a8
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!1001 &7603892618828555591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5829,3 +5842,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handCenter: {fileID: 675244107}
+  _flipPieceAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Flip Piece
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 64e80c24-d916-4261-a6f9-79b2de91c786
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}

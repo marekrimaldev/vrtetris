@@ -10,6 +10,7 @@ namespace VRTetris
     public class Piece : MonoBehaviour
     {
         [SerializeField] private Transform[] _cubes;
+        [SerializeField] private Transform _rotator;
 
         public Transform[] Cubes => _cubes;
 
@@ -46,6 +47,12 @@ namespace VRTetris
         {
             OnPieceGrabbed?.Invoke(this);
             OnPieceGrabbedUE?.Invoke();
+        }
+
+        public void Flip()
+        {
+            Debug.Log("Flip");
+            _rotator.Rotate(0, 180, 0);
         }
     }
 }
