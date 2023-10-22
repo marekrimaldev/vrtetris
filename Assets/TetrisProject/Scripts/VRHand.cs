@@ -27,8 +27,6 @@ namespace VRTetris
         {
             float leftWandValue = _flipPieceAction.action.ReadValue<float>();
 
-            Debug.LogWarning("Value = " + leftWandValue);
-
             if (!_pieceFlippedHold && leftWandValue > Threshold)
             {
                 HeldPiece.Flip();

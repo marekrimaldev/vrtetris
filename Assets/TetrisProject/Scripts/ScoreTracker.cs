@@ -26,7 +26,7 @@ namespace VRTetris
 
         public void RowClearScored(int rowsCleared)
         {
-            int score = ScoreTable[rowsCleared];
+            int score = ScoreTable[rowsCleared - 1];
             AddScore(score);
 
             _totalRowsCleared += rowsCleared;
