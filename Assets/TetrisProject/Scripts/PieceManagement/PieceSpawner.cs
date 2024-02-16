@@ -22,12 +22,12 @@ namespace VRTetris
 
         private void OnEnable()
         {
-            MatrixController.OnChangeActivePieceCount += OnChangeActivePieceCountListener;
+            MatrixController.OnActivePieceCountChange += OnChangeActivePieceCountListener;
         }
 
         private void OnDisable()
         {
-            MatrixController.OnChangeActivePieceCount -= OnChangeActivePieceCountListener;
+            MatrixController.OnActivePieceCountChange -= OnChangeActivePieceCountListener;
         }
 
         private void Start()

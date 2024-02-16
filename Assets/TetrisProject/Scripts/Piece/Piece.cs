@@ -30,7 +30,9 @@ namespace VRTetris
         {
             XRGrabInteractable interactable = GetComponentInChildren<XRGrabInteractable>();
             if (interactable != null)
+            {
                 interactable.enabled = val;
+            }
         }
 
         public void LockIn()
@@ -51,7 +53,6 @@ namespace VRTetris
 
         public void Flip()
         {
-            Debug.Log("Flip");
             _rotator.Rotate(0, 180, 0);
         }
     }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace VRTetris
 {
+    /// <summary>
+    /// Class providing interface to interact with the Matrix
+    /// </summary>
     public class MatrixController : MonoBehaviourSingleton<MatrixController>
     {
         [SerializeField] private Vector3Int _dimensions;
@@ -13,7 +16,7 @@ namespace VRTetris
         private Matrix _matrix;
         private List<Piece> _activePieces = new List<Piece>();
 
-        public static System.Action<int> OnChangeActivePieceCount;
+        public static System.Action<int> OnActivePieceCountChange;
         public static System.Action<Piece> OnPiecePlacement;
         public static System.Action OnGameOver;
 
@@ -56,7 +59,7 @@ namespace VRTetris
             piece.OnPieceGrabbed -= OnPieceGrabbed;
 
             _activePieces.Add(piece);
-            OnChangeActivePieceCount?.Invoke(_activePieces.Count);
+            OnActivePieceCountChange?.Invoke(_activePieces.Count);
         }
 
         public void OnPieceDroppedListener(Piece piece)
@@ -68,19 +71,19 @@ namespace VRTetris
 
         #region PRIVATE METHODS
 
-        private void PositionMatrix()
+        private void Init()
+        {
+            InitMatrixPoision();
+            _matrix = new Matrix(transform.position, _dimensions);
+            _matrix.CubeHolder.SetParent(transform);
+        }
+
+        private void InitMatrixPoision()
         {
             transform.position += Vector3.left * _dimensions.x * PieceSpawner.PieceScale / 2;
             transform.position += Vector3.forward * _dimensions.z * PieceSpawner.PieceScale / 2;
             transform.position += Vector3.forward * .15f;
             transform.position += Vector3.up * 1;
-        }
-
-        private void Init()
-        {
-            PositionMatrix();
-            _matrix = new Matrix(transform.position, _dimensions);
-            _matrix.CubeHolder.SetParent(transform);
         }
 
         private void VisualizeClosestPiece()
@@ -130,7 +133,7 @@ namespace VRTetris
             _matrix.PlacePieceToMatrix(piece);
 
             OnPiecePlacement?.Invoke(piece);
-            OnChangeActivePieceCount?.Invoke(_activePieces.Count);
+            OnActivePieceCountChange?.Invoke(_activePieces.Count);
         }
 
         private void OnPieceCollision()

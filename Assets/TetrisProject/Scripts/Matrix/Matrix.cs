@@ -5,16 +5,16 @@ using UnityEngine;
 namespace VRTetris
 {
     /// <summary>
-    /// This class is representing the grid the player is placing pieces into.
-    /// It is basicaly a Transform[][] wrapper providing interface to interact with the grid.
+    /// This class is representing the grid into which the player is placing pieces into.
+    /// It is basicaly a Transform[][] wrapper providing interface for interacting with the grid.
     /// </summary>
     public class Matrix
     {
         private Vector3 _origin;
         private Vector3Int _dimensions;
         private Transform[][] _matrix;
-        private Transform[][] _auxMatrix;   // Auxilary matrix used for visualization and some placement checks
-        private Transform _cubeHolder;      // Used as a parent to all cubes in the grid
+        private Transform[][] _auxMatrix;   // Auxilary matrix used for visualization and placement checking
+        private Transform _cubeHolder;      // Parent to all cubes in the grid
 
         private const float RowClearTime = .5f;
         private const int MaxCubesPerPiece = 4;
@@ -119,6 +119,7 @@ namespace VRTetris
                 _placementVisCubes.Add(cube.transform);
             }
         }
+
         private void VisualizeGrid()
         {
             for (int y = 0; y < _dimensions.y; y++)
